@@ -1,0 +1,55 @@
+config:
+  base_headers:
+    User-Agent: null
+  max_attempts: 3
+authentication:
+  base_url: https://appointment.questdiagnostics.com/find-location/as-location-finder
+  max_uses: 3
+  browser: chromium
+  auth_objects:
+    cookie:
+      method: headless
+      type: cookie
+      constants: null
+    x-csrf-token:
+      method: headless
+      type: header
+      url: https://appointment.questdiagnostics.com/api/getUserDemographics
+  count: 10
+initial_task:
+  class_type: HexagonInitializer
+  data:
+  response_methods:
+    - request
+tasks:
+  request:
+    class_type: RequestTask
+    data:
+      method: GET
+      url: https://www.questdiagnostics.com/locations/search.html/10019/10/1
+    response_methods:
+      - convert_html_to_json
+  convert_html_to_json:
+    class_type: HTML2JSONTask
+    data:
+      html: <Response(request).data>
+      method: xpath
+      xpath: '//div[@class="location-item-container"]'
+      element_type: null
+      element_class: null
+    response_methods:
+      - parse_location
+  parse_location:
+    class_type: LocationParserTask
+    data:
+      pid: <Response(convert_html_to_json).data.tab_left.site_name>
+      lid: <Response(convert_html_to_json).data.tab_left.site_name>
+      street_1: <Response(convert_html_to_json).data.tab_left.content.address1>
+      city: <Response(convert_html_to_json).data.tab_left.content.district_direction.district>
+      state: <Response(convert_html_to_json).data.tab_left.content.district_direction.district>
+      zip_code: <Response(convert_html_to_json).data.tab_left.content.district_direction.district>
+      phone: <Response(convert_html_to_json).data.tab_right.schedule_phone.btn>
+      street_2: <Response(convert_html_to_json).data.tab_left.content.address2>
+      lat: <Response(convert_html_to_json).data.map_info.latitude>
+      lng: <Response(convert_html_to_json).data.map_info.longitude>
+    response_methods: null
