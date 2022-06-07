@@ -71,13 +71,13 @@ Before you run or debug your code, make sure your configuration is correctly set
 - make sure the working directory is the project folder (root)
 - you add environment variables here -- NEVER STORE PASSWORDS IN CODE. ALWAYS USE ENVIRONMENT VARIABLES!!!
 
-![configuration](../pictures/configuration.png)
+![configuration](./pictures/configuration.png)
 
 
 When you are debugging within a loop, sometimes you only want to stop your code once it got to a particular element. If 
 you right-click on the breakpoint, you can add condition to your break. 
 
-![breakpoint](../pictures/breakpoint.png)
+![breakpoint](./pictures/breakpoint.png)
 
 Shortcut Keys:
 - SHIFT + F10               -- run
@@ -119,18 +119,18 @@ Some principals which we stick to when collaborating:
 - We encourage you to add comments and start conversation directly in the pull request.    
 - After merging the pull request, delete the feature branch.
   
-![delete_feature_branch](../pictures/github_delete_feature_branch.png)
+![delete_feature_branch](./pictures/github_delete_feature_branch.png)
 
 - If you are admin on the project, always protect the production and develop branches. In the case of automated pytest, 
   add them to the requirements.
   
-![img_4.png](../pictures/onboarding_img_4.png)
+![img_4.png](./pictures/onboarding_img_4.png)
 
 # 4. Virtual Environment <a name="ve"></a>
 After cloning a project, create a new virtual environment. Always use a separate environment for new projects. 
 *(File --> Settings --> Project: --> Project Interpreter)*. 
 
-![img_1.png](../pictures/onboarding_img_1.png)
+![img_1.png](./pictures/onboarding_img_1.png)
 
 Or simply type `py -m venv venv` in the command line.
 
@@ -138,7 +138,7 @@ Or simply type `py -m venv venv` in the command line.
 As code should be reproducible on other machines we strongly advise to create a requirements.txt containing all package
 dependencies used in the project. Make sure you use both package name and version number.
 
-![img_2.png](../pictures/onboarding_img_2.png)
+![img_2.png](./pictures/onboarding_img_2.png)
 
 You can automatically generate the requirements.txt based on the installed dependencies by using the *pipreqs* package. 
 
@@ -153,7 +153,7 @@ Use snake case for the folder and python file names.
 - Unit and regression tests must be located in the test folder
 - Configuration files (Dockerfile, Jenkinsfile, buildspec, requirements.txt) are in the root folder
 
-![img_3.png](../pictures/onboarding_img_3.png)
+![img_3.png](./pictures/onboarding_img_3.png)
 
 When building a project, logic goes into modules and packages and is saved in _.py_ format. Notebooks are for 
 analysis/research purposes only and should **never** be used to store source code! 
@@ -176,7 +176,7 @@ You can also check the guide on [geeksforgeeks](https://www.geeksforgeeks.org/py
 to see an example of how you can reformat your code using black. Then to integrate black to PyCharm, go to 
 (*PyCharm -> Preferences... (Ctrl + ,) -> Tools -> External Tools -> Click + symbol to add new external tool*). Configure as  
 shown below and to reformat your current file, go to (Tools -> External Tools -> Black).
-![img.png](../pictures/black_settings.png)
+![img.png](./pictures/black_settings.png)
   
 
 # 7. Documentation <a name="d"></a>
@@ -197,7 +197,7 @@ We prefer for docstrings to follow Google docstring format. More about Google St
 To set Google as the default format in PyCharm, simply update your settings: *File --> Settings/Tools/Python 
 Integrated Tools/Docstrings*
 
-![google_docstring](../pictures/google_docstring.png)
+![google_docstring](./pictures/google_docstring.png)
 
 - Even for small projects, a single comment line is the minimum that should be added to functions and classes to 
 describe what it is doing without the reader having to look at the actual code.
