@@ -130,7 +130,7 @@ Some principals which we stick to when collaborating:
 After cloning a project, create a new virtual environment. Always use a separate environment for new projects. 
 *(File --> Settings --> Project: --> Project Interpreter)*. 
 
-![img_1.png](/pictures/onboarding_img_1.png)
+![img_1.png](./pictures/onboarding_img_1.png)
 
 Or simply type `py -m venv venv` in the command line.
 
